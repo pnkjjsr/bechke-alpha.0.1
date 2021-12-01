@@ -5,6 +5,10 @@ const runtimeCaching = require('next-pwa/cache')
 const nextConfig = {
   distDir: '../.next',
 
+  images: {
+    domains: ['bechke.com', 'https://www.bechke.com'],
+  },
+
   reactStrictMode: true,
 
   pwa: {
@@ -12,6 +16,7 @@ const nextConfig = {
     disable: process.env.NODE_ENV === 'development',
     register: true, // on/off PWA feature.
     runtimeCaching,
+    buildExcludes: [/middleware-manifest\.json$/]
   },
 }
 

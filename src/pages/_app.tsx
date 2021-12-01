@@ -1,10 +1,18 @@
+import React, { useEffect } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 
+import analytics from "@/libs/firebase/analytics";
+
 import theme from "../theme";
+import "@/styles/globals.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    analytics();
+  }, []);
+
   return (
     <>
       <Head>
