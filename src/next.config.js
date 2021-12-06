@@ -2,7 +2,7 @@ const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withPWA({
   distDir: '../.next',
 
   images: {
@@ -18,7 +18,6 @@ const nextConfig = {
     runtimeCaching,
     buildExcludes: [/middleware-manifest\.json$/]
   },
-}
+});
 
-
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;

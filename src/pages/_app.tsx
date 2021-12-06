@@ -3,14 +3,14 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 
-import analytics from "@/libs/firebase/analytics";
+import firebase from "@/libs/firebase";
 
 import theme from "../theme";
 import "@/styles/globals.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    analytics();
+    firebase.analytics();
   }, []);
 
   return (
